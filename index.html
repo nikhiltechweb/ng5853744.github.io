@@ -1,61 +1,248 @@
-
 <!DOCTYPE html>
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <meta name="google-site-verification" content="KxcFjF96uPSOEA4XgHbFGhJVWu19PWM3XviVXCf2Q7o" />
-<title>My Personal Website</title>
+
+<title>NikhilTechWorld | Explore Technology</title>
+<meta name="description" content="Explore AI, technology, digital tools, web development and ethical cybersecurity with NikhilTechWorld.">
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
 }
 
-body {
-  background: #0b0b12;
-  color: white;
-  font-family: Arial, sans-serif;
-  text-align: center;
+:root{
+  --bg:#080d16;
+  --card:#101a2b;
+  --blue:#00b7ff;
+  --text:#eef5ff;
+  --muted:#9aaac0;
 }
 
-header {
-  padding: 60px 20px;
-  background: linear-gradient(135deg, #111827, #6d28d9);
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,sans-serif;
+  overflow-x:hidden;
 }
 
-h1 {
-  font-size: 35px;
-  margin-bottom: 12px;
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background:
+  radial-gradient(circle at 80% 10%,#07304b66,transparent 40%),
+  radial-gradient(circle at 10% 60%,#10285a55,transparent 35%);
 }
 
-p {
-  color: #cccccc;
-  line-height: 1.7;
+header{
+  padding:18px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #1d2b40;
+  background:#080d16ef;
+  position:sticky;
+  top:0;
+  z-index:10;
 }
 
-section {
-  padding: 30px 20px;
-  margin: 20px;
-  background: #171722;
-  border-radius: 16px;
+.logo{
+  font-size:21px;
+  font-weight:bold;
+  color:white;
 }
 
-button {
-  padding: 12px 22px;
-  margin-top: 15px;
-  border: none;
-  border-radius: 10px;
-  background: #8b5cf6;
-  color: white;
-  font-size: 16px;
+.logo span{
+  color:var(--blue);
 }
 
-footer {
-  padding: 20px;
-  color: #888;
+nav{
+  display:flex;
+  gap:18px;
+}
+
+nav a{
+  color:#c5d3e4;
+  text-decoration:none;
+  font-size:14px;
+}
+
+nav a:hover{
+  color:var(--blue);
+}
+
+.hero{
+  padding:90px 20px 75px;
+  text-align:center;
+}
+
+.tag{
+  color:var(--blue);
+  border:1px solid #16486b;
+  padding:8px 14px;
+  border-radius:30px;
+  font-size:12px;
+  display:inline-block;
+}
+
+.hero h1{
+  font-size:clamp(35px,8vw,65px);
+  margin:25px 0 15px;
+  line-height:1.1;
+}
+
+.hero h1 span{
+  color:var(--blue);
+}
+
+.hero p{
+  color:var(--muted);
+  max-width:600px;
+  margin:auto;
+  line-height:1.8;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:28px;
+  padding:13px 23px;
+  background:var(--blue);
+  color:#04111b;
+  text-decoration:none;
+  border-radius:9px;
+  font-weight:bold;
+}
+
+.btn2{
+  background:transparent;
+  border:1px solid #29405a;
+  color:white;
+  margin-left:8px;
+}
+
+.section{
+  padding:60px 6%;
+}
+
+.section h2{
+  text-align:center;
+  font-size:30px;
+  margin-bottom:12px;
+}
+
+.sub{
+  text-align:center;
+  color:var(--muted);
+  margin-bottom:35px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:17px;
+}
+
+.card{
+  background:linear-gradient(145deg,#111c2d,#0b1220);
+  border:1px solid #203148;
+  border-radius:16px;
+  padding:24px;
+  transition:.25s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  border-color:var(--blue);
+  box-shadow:0 0 20px #00b7ff15;
+}
+
+.icon{
+  font-size:30px;
+  margin-bottom:15px;
+}
+
+.card h3{
+  margin-bottom:10px;
+}
+
+.card p{
+  font-size:14px;
+  line-height:1.7;
+  color:var(--muted);
+}
+
+.card a{
+  color:var(--blue);
+  text-decoration:none;
+  display:inline-block;
+  margin-top:15px;
+  font-size:14px;
+}
+
+.about{
+  max-width:800px;
+  margin:auto;
+  text-align:center;
+  background:#101a2b;
+  border:1px solid #203148;
+  padding:30px;
+  border-radius:18px;
+}
+
+.about p{
+  color:var(--muted);
+  line-height:1.8;
+}
+
+footer{
+  text-align:center;
+  padding:35px 15px;
+  border-top:1px solid #1d2b40;
+  color:var(--muted);
+}
+
+footer strong{
+  color:var(--blue);
+}
+
+@media(max-width:600px){
+
+  header{
+    padding:15px 4%;
+  }
+
+  .logo{
+    font-size:17px;
+  }
+
+  nav{
+    gap:10px;
+  }
+
+  nav a{
+    font-size:11px;
+  }
+
+  .hero{
+    padding:70px 17px 55px;
+  }
+
+  .section{
+    padding:45px 5%;
+  }
+
+  .btn2{
+    margin-left:0;
+    margin-top:12px;
+  }
 }
 </style>
 </head>
@@ -63,34 +250,114 @@ footer {
 <body>
 
 <header>
-  <h1>Nikhil Gautam</h1>
-  <p>Welcome to my personal website</p>
-  <button onclick="alert('Thanks for visiting my website!')">
-    Explore More
-  </button>
+  <div class="logo">Nikhil<span>TechWorld</span></div>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#explore">Explore</a>
+    <a href="#about">About</a>
+  </nav>
 </header>
 
-<section>
-  <h2>About Me</h2>
+<section class="hero" id="home">
+
+  <div class="tag">WELCOME TO THE DIGITAL WORLD</div>
+
+  <h1>
+    Explore The World<br>
+    Of <span>Technology</span>
+  </h1>
+
   <p>
-    Hello! Main Nikhil hoon. Mujhe technology,
-    gaming, learning aur content creation mein interest hai.
-    Main har din kuch naya seekhne ki koshish karta hoon.
+    Discover AI, technology, useful tools and cybersecurity knowledge.
+    Learn something new and explore the future of the digital world.
   </p>
+
+  <a href="#explore" class="btn">Explore Now →</a>
+  <a href="#about" class="btn btn2">About Me</a>
+
 </section>
 
-<section>
-  <h2>My Interests</h2>
-  <p>Gaming • Technology • YouTube • Coding • Learning</p>
+<section class="section" id="explore">
+
+  <h2>Explore Our World</h2>
+
+  <p class="sub">
+    Technology, knowledge and digital innovation in one place.
+  </p>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="icon">🤖</div>
+      <h3>AI Zone</h3>
+      <p>Explore artificial intelligence, AI tools, creative technology and new discoveries.</p>
+      <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">Explore AI →</a>
+    </div>
+
+    <div class="card">
+      <div class="icon">💻</div>
+      <h3>Tech Zone</h3>
+      <p>Discover useful apps, websites, gadgets, software and technology tips.</p>
+      <a href="https://www.android.com/" target="_blank" rel="noopener noreferrer">Explore Tech →</a>
+    </div>
+
+    <div class="card">
+      <div class="icon">🔐</div>
+      <h3>Cybersecurity</h3>
+      <p>Learn online safety, privacy, security basics and ethical cybersecurity.</p>
+      <a href="https://www.cybercrime.gov.in/" target="_blank" rel="noopener noreferrer">Cyber Safety →</a>
+    </div>
+
+    <div class="card">
+      <div class="icon">🧰</div>
+      <h3>Useful Tools</h3>
+      <p>Find helpful online resources for learning, creativity and everyday digital tasks.</p>
+      <a href="https://www.photopea.com/" target="_blank" rel="noopener noreferrer">Open Tools →</a>
+    </div>
+
+    <div class="card">
+      <div class="icon">🌐</div>
+      <h3>Web Development</h3>
+      <p>Explore websites, HTML, CSS, coding basics and the world of web development.</p>
+      <a href="https://www.w3schools.com/" target="_blank" rel="noopener noreferrer">Learn Coding →</a>
+    </div>
+
+    <div class="card">
+      <div class="icon">🚀</div>
+      <h3>Digital Future</h3>
+      <p>Explore space technology, innovation, robotics and the future of science.</p>
+      <a href="https://www.nasa.gov/" target="_blank" rel="noopener noreferrer">Explore Future →</a>
+    </div>
+
+  </div>
 </section>
 
-<section>
-  <h2>Contact</h2>
-  <p>You can connect with me through my social media.</p>
+<section class="section" id="about">
+
+  <h2>About Me</h2>
+  <p class="sub">Behind NikhilTechWorld</p>
+
+  <div class="about">
+    <h3 style="color:#00b7ff;margin-bottom:15px">
+      Hey, I'm Nikhil 👋
+    </h3>
+
+    <p>
+      Welcome to NikhilTechWorld! This platform is all about technology,
+      AI, digital tools, cybersecurity awareness and learning new things.
+      My goal is to explore technology and share useful knowledge
+      with everyone who wants to learn and grow in the digital world.
+    </p>
+  </div>
+
 </section>
 
 <footer>
-  © 2026 Nikhil Gautam
+  <p>Made with ❤️ by <strong>NikhilTechWorld</strong></p>
+  <p style="margin-top:10px;font-size:12px">
+    © 2026 | Learn • Explore • Innovate
+  </p>
 </footer>
 
 </body>
