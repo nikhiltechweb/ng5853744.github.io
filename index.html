@@ -7,59 +7,380 @@
 
 <meta name="google-site-verification" content="KxcFjF96uPSOEA4XgHbFGhJVWu19PWM3XviVXCf2Q7o">
 
-<title>NikhilTechWorld | Explore Technology</title>
-<meta name="description" content="Explore AI, technology, digital tools and web development with Nikhil Gautam.">
+<title>NikhilTechWorld | Hacker & AI Technology</title>
+<meta name="description" content="Explore AI tools, technology, ethical cybersecurity, coding and digital innovation with Nikhil Gautam.">
+<meta name="theme-color" content="#050a08">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
-:root{--bg:#080d16;--card:#101a2b;--blue:#00b7ff;--text:#eef5ff;--muted:#9aaac0}
-body{background:var(--bg);color:var(--text);font-family:Arial,sans-serif;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 80% 10%,#07304b66,transparent 40%),radial-gradient(circle at 10% 60%,#10285a55,transparent 35%)}
-header{padding:18px 6%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #1d2b40;background:#080d16ef;position:sticky;top:0;z-index:10}
-.logo{font-size:21px;font-weight:bold;color:white}
-.logo span{color:var(--blue)}
-nav{display:flex;gap:18px}
-nav a{color:#c5d3e4;text-decoration:none;font-size:14px}
-nav a:hover{color:var(--blue)}
-.hero{padding:90px 20px 75px;text-align:center}
-.tag{color:var(--blue);border:1px solid #16486b;padding:8px 14px;border-radius:30px;font-size:12px;display:inline-block}
-.hero h1{font-size:clamp(35px,8vw,65px);margin:25px 0 15px;line-height:1.1}
-.hero h1 span{color:var(--blue)}
-.hero p{color:var(--muted);max-width:600px;margin:auto;line-height:1.8}
-.btn{display:inline-block;margin-top:28px;padding:13px 23px;background:var(--blue);color:#04111b;text-decoration:none;border-radius:9px;font-weight:bold}
-.btn2{background:transparent;border:1px solid #29405a;color:white;margin-left:8px}
-.section{padding:60px 6%}
-.section h2{text-align:center;font-size:30px;margin-bottom:12px}
-.sub{text-align:center;color:var(--muted);margin-bottom:35px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:17px}
-.card{background:linear-gradient(145deg,#111c2d,#0b1220);border:1px solid #203148;border-radius:16px;padding:24px;transition:.25s}
-.card:hover{transform:translateY(-5px);border-color:var(--blue)}
-.icon{font-size:30px;margin-bottom:15px}
+
+:root{
+--bg:#050a08;
+--card:#0b1511;
+--green:#00ff88;
+--text:#eafff3;
+--muted:#91a99c;
+--border:#16432e;
+}
+
+body{
+background:var(--bg);
+color:var(--text);
+font-family:Arial,sans-serif;
+overflow-x:hidden;
+}
+
+body:before{
+content:"";
+position:fixed;
+inset:0;
+z-index:-1;
+background:
+radial-gradient(circle at 80% 10%,#00ff8818,transparent 35%),
+radial-gradient(circle at 10% 70%,#00aa6612,transparent 40%);
+}
+
+header{
+padding:17px 6%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid var(--border);
+background:#050a08ed;
+position:sticky;
+top:0;
+z-index:100;
+backdrop-filter:blur(12px);
+}
+
+.logo{
+font-size:21px;
+font-weight:bold;
+}
+
+.logo span{color:var(--green)}
+
+nav{
+display:flex;
+gap:17px;
+align-items:center;
+}
+
+nav a{
+color:#c5e8d4;
+text-decoration:none;
+font-size:13px;
+}
+
+nav a:hover{color:var(--green)}
+
+.menu-btn{
+display:none;
+background:none;
+border:1px solid var(--green);
+color:var(--green);
+padding:7px 11px;
+border-radius:6px;
+}
+
+.hero{
+min-height:490px;
+padding:110px 20px 80px;
+text-align:center;
+}
+
+.tag{
+color:var(--green);
+border:1px solid var(--border);
+padding:9px 15px;
+border-radius:30px;
+font-size:12px;
+display:inline-block;
+letter-spacing:2px;
+}
+
+.hero h1{
+font-size:clamp(38px,8vw,70px);
+margin:27px 0 18px;
+line-height:1.12;
+}
+
+.hero h1 span{
+color:var(--green);
+text-shadow:0 0 25px #00ff8855;
+}
+
+.hero p{
+color:var(--muted);
+max-width:650px;
+margin:auto;
+line-height:1.8;
+}
+
+.btn{
+display:inline-block;
+margin-top:27px;
+padding:13px 23px;
+background:var(--green);
+color:#00190b;
+text-decoration:none;
+border-radius:7px;
+font-weight:bold;
+border:none;
+cursor:pointer;
+}
+
+.btn2{
+background:transparent;
+border:1px solid var(--green);
+color:var(--green);
+margin-left:8px;
+}
+
+.section{padding:65px 6%}
+
+.section h2{
+text-align:center;
+font-size:30px;
+margin-bottom:12px;
+}
+
+.section h2 span{color:var(--green)}
+
+.sub{
+text-align:center;
+color:var(--muted);
+margin-bottom:35px;
+line-height:1.7;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:18px;
+}
+
+.card{
+background:linear-gradient(145deg,#0d1912,#080e0b);
+border:1px solid var(--border);
+border-radius:13px;
+padding:24px;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+border-color:var(--green);
+box-shadow:0 0 20px #00ff8812;
+}
+
+.icon{
+font-size:30px;
+margin-bottom:15px;
+}
+
 .card h3{margin-bottom:10px}
-.card p{font-size:14px;line-height:1.7;color:var(--muted)}
-.card a{color:var(--blue);text-decoration:none;display:inline-block;margin-top:15px;font-size:14px}
-.about{max-width:800px;margin:auto;text-align:center;background:#101a2b;border:1px solid #203148;padding:30px;border-radius:18px}
-.about p{color:var(--muted);line-height:1.8}
-.profile{max-width:800px;margin:auto;text-align:center;background:linear-gradient(145deg,#101a2b,#0b1220);border:1px solid #203148;padding:35px 20px;border-radius:20px}
-.profile-photo{width:145px;height:145px;border-radius:50%;border:3px solid var(--blue);object-fit:cover;object-position:center 35%;margin-bottom:18px;box-shadow:0 0 25px #00b7ff55}
-.profile h3{font-size:26px;margin-bottom:10px}
-.profile p{color:var(--muted);line-height:1.7}
-.socials{display:flex;justify-content:center;flex-wrap:wrap;gap:14px}
-.social-btn{display:inline-block;padding:14px 22px;border-radius:10px;text-decoration:none;font-weight:bold;color:white;margin-top:25px;transition:.2s}
-.social-btn:hover{transform:translateY(-3px);opacity:.9}
+
+.card p{
+font-size:14px;
+line-height:1.7;
+color:var(--muted);
+}
+
+.card a{
+color:var(--green);
+text-decoration:none;
+display:inline-block;
+margin-top:15px;
+font-size:14px;
+}
+
+.terminal{
+max-width:850px;
+margin:auto;
+background:#020604;
+border:1px solid var(--green);
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 0 25px #00ff8815;
+}
+
+.term-head{
+padding:13px;
+background:#102017;
+color:var(--green);
+font-size:13px;
+}
+
+.term-body{
+padding:20px;
+min-height:200px;
+font-family:monospace;
+font-size:13px;
+line-height:2;
+color:#a6ffc9;
+}
+
+.term-input{
+width:100%;
+padding:14px;
+background:#07100a;
+color:var(--green);
+border:0;
+border-top:1px solid var(--border);
+outline:none;
+font-family:monospace;
+}
+
+.search-box{
+display:block;
+width:100%;
+max-width:550px;
+margin:0 auto 30px;
+padding:15px;
+border-radius:8px;
+background:#0b1511;
+border:1px solid var(--border);
+color:white;
+outline:none;
+}
+
+.search-box:focus{border-color:var(--green)}
+
+.tool-link{
+display:inline-block;
+padding:10px 14px;
+margin-top:12px;
+background:#10251a;
+border:1px solid var(--border);
+border-radius:7px;
+color:var(--green);
+text-decoration:none;
+font-size:13px;
+}
+
+.panel{
+max-width:850px;
+margin:auto;
+padding:25px;
+background:var(--card);
+border:1px solid var(--border);
+border-radius:13px;
+}
+
+.panel input,.panel textarea{
+width:100%;
+padding:12px;
+margin:8px 0;
+background:#050d08;
+border:1px solid var(--border);
+color:white;
+border-radius:6px;
+}
+
+.panel textarea{min-height:90px}
+
+.panel button,.action-btn{
+padding:10px 15px;
+background:var(--green);
+color:#00190b;
+border:0;
+border-radius:6px;
+font-weight:bold;
+cursor:pointer;
+margin:5px 4px 5px 0;
+}
+
+.blog-item{
+padding:18px;
+border-bottom:1px solid var(--border);
+}
+
+.blog-item h3{color:var(--green);margin-bottom:8px}
+.blog-item p{color:var(--muted);line-height:1.7}
+
+.profile{
+max-width:800px;
+margin:auto;
+text-align:center;
+background:linear-gradient(145deg,#0d1912,#080e0b);
+border:1px solid var(--border);
+padding:35px 20px;
+border-radius:17px;
+}
+
+.profile-photo{
+width:145px;
+height:145px;
+border-radius:50%;
+border:3px solid var(--green);
+object-fit:cover;
+object-position:center 35%;
+margin-bottom:18px;
+box-shadow:0 0 25px #00ff8844;
+}
+
+.profile p{color:var(--muted);line-height:1.8}
+
+.socials{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:12px;
+}
+
+.social-btn{
+display:inline-block;
+padding:13px 18px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+color:white;
+margin-top:22px;
+}
+
 .youtube{background:#e62117}
 .instagram{background:#c13584}
-.telegram{background:#229ED9}
-footer{text-align:center;padding:35px 15px;border-top:1px solid #1d2b40;color:var(--muted)}
-footer strong{color:var(--blue)}
-@media(max-width:600px){
-header{padding:15px 4%}
+.telegram{background:#229ed9}
+
+.hidden{display:none!important}
+
+.status{
+color:var(--green);
+font-size:13px;
+margin-top:10px;
+}
+
+footer{
+text-align:center;
+padding:35px 15px;
+border-top:1px solid var(--border);
+color:var(--muted);
+}
+
+footer strong{color:var(--green)}
+
+@media(max-width:650px){
+header{padding:14px 4%}
 .logo{font-size:16px}
-nav{gap:9px}
-nav a{font-size:11px}
-.hero{padding:70px 17px 55px}
-.section{padding:45px 5%}
-.btn2{margin-left:0;margin-top:12px}
+.menu-btn{display:block}
+nav{
+display:none;
+position:absolute;
+top:60px;
+left:0;
+width:100%;
+background:#07100a;
+padding:20px;
+flex-direction:column;
+align-items:flex-start;
+border-bottom:1px solid var(--border);
+}
+nav.open{display:flex}
+nav a{font-size:14px}
+.hero{padding:80px 17px 60px}
+.section{padding:48px 5%}
+.btn2{margin-left:0}
 }
 </style>
 </head>
@@ -68,78 +389,491 @@ nav a{font-size:11px}
 
 <header>
 <div class="logo">Nikhil<span>TechWorld</span></div>
-<nav>
+
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+<nav id="navigation">
 <a href="#home">Home</a>
 <a href="#explore">Explore</a>
-<a href="#about">About</a>
-<a href="#social">Social</a>
+<a href="#terminal">Terminal</a>
+<a href="#ai">AI Tools</a>
+<a href="#blog">Blog</a>
+<a href="#profile">Profile</a>
 </nav>
 </header>
 
+<!-- HOME -->
+
 <section class="hero" id="home">
-<div class="tag">WELCOME TO THE DIGITAL WORLD</div>
-<h1>Explore The World<br>Of <span>Technology</span></h1>
-<p>Discover AI, technology, useful tools and cybersecurity knowledge. Learn something new and explore the future of the digital world.</p>
+
+<div class="tag">SYSTEM ONLINE • WELCOME TO THE FUTURE</div>
+
+<h1>WELCOME TO<br><span>NIKHIL TECH WORLD</span></h1>
+
+<p>
+Explore the world of Artificial Intelligence, ethical cybersecurity,
+technology, coding and digital innovation.
+</p>
+
 <a href="#explore" class="btn">Explore Now →</a>
-<a href="#about" class="btn btn2">About Me</a>
+<a href="#terminal" class="btn btn2">Open Terminal</a>
+
 </section>
+
+<!-- SEARCH -->
 
 <section class="section" id="explore">
-<h2>Explore Our World</h2>
-<p class="sub">Technology, knowledge and digital innovation in one place.</p>
+
+<h2>Explore <span>Everything</span></h2>
+<p class="sub">Search and discover the digital world.</p>
+
+<input
+type="search"
+id="siteSearch"
+class="search-box"
+placeholder="🔎 Search AI, Cybersecurity, Tools, Blog..."
+oninput="searchSite()"
+>
+
+<div class="grid" id="exploreGrid">
+
+<div class="card searchable">
+<div class="icon">🤖</div>
+<h3>AI Zone</h3>
+<p>Explore artificial intelligence and creative AI technology.</p>
+<a href="#ai">Explore AI →</a>
+</div>
+
+<div class="card searchable">
+<div class="icon">💻</div>
+<h3>Tech Zone</h3>
+<p>Discover useful apps, websites and technology tips.</p>
+<a href="https://www.android.com/" target="_blank" rel="noopener">Explore Tech →</a>
+</div>
+
+<div class="card searchable">
+<div class="icon">🔐</div>
+<h3>Cybersecurity</h3>
+<p>Learn online privacy, cybersecurity awareness and safe browsing.</p>
+<a href="https://www.cybercrime.gov.in/" target="_blank" rel="noopener">Cyber Safety →</a>
+</div>
+
+<div class="card searchable">
+<div class="icon">🧰</div>
+<h3>Useful Tools</h3>
+<p>Discover helpful online tools for creativity and productivity.</p>
+<a href="https://www.photopea.com/" target="_blank" rel="noopener">Open Tools →</a>
+</div>
+
+<div class="card searchable">
+<div class="icon">🌐</div>
+<h3>Web Development</h3>
+<p>Learn HTML, CSS, JavaScript and website development.</p>
+<a href="https://www.w3schools.com/" target="_blank" rel="noopener">Learn Coding →</a>
+</div>
+
+<div class="card searchable">
+<div class="icon">🚀</div>
+<h3>Digital Future</h3>
+<p>Explore robotics, space and the future of technology.</p>
+<a href="https://www.nasa.gov/" target="_blank" rel="noopener">Explore Future →</a>
+</div>
+
+</div>
+<p id="noResults" class="sub hidden">No matching results found.</p>
+</section>
+
+<!-- TERMINAL -->
+
+<section class="section" id="terminal">
+
+<h2>Hacker <span>Terminal</span></h2>
+<p class="sub">Interactive educational terminal simulation.</p>
+
+<div class="terminal">
+<div class="term-head">● LIVE DEMO TERMINAL — NIKHIL TECH WORLD</div>
+
+<div class="term-body" id="terminalOutput">
+Welcome to NikhilTechWorld Terminal.<br>
+Type <span style="color:#00ff88">help</span> to see available commands.<br>
+$
+</div>
+
+<input
+class="term-input"
+id="terminalInput"
+placeholder="Type help and press Enter..."
+autocomplete="off"
+onkeydown="if(event.key==='Enter')runCommand()"
+>
+</div>
+
+</section>
+
+<!-- AI TOOLS -->
+
+<section class="section" id="ai">
+
+<h2>AI <span>Tools</span></h2>
+<p class="sub">Useful AI platforms. Free access may have usage limits.</p>
+
 <div class="grid">
 
-<div class="card"><div class="icon">🤖</div><h3>AI Zone</h3><p>Explore artificial intelligence, AI tools and creative technology.</p><a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">Explore AI →</a></div>
+<div class="card">
+<div class="icon">🧠</div>
+<h3>ChatGPT</h3>
+<p>AI assistant for learning, writing and ideas.</p>
+<a href="https://chatgpt.com/" target="_blank" rel="noopener">Open ChatGPT →</a>
+</div>
 
-<div class="card"><div class="icon">💻</div><h3>Tech Zone</h3><p>Discover useful apps, websites, gadgets and technology tips.</p><a href="https://www.android.com/" target="_blank" rel="noopener noreferrer">Explore Tech →</a></div>
+<div class="card">
+<div class="icon">✨</div>
+<h3>Google Gemini</h3>
+<p>Explore Google's AI assistant.</p>
+<a href="https://gemini.google.com/" target="_blank" rel="noopener">Open Gemini →</a>
+</div>
 
-<div class="card"><div class="icon">🔐</div><h3>Cybersecurity</h3><p>Learn online safety, privacy and ethical cybersecurity.</p><a href="https://www.cybercrime.gov.in/" target="_blank" rel="noopener noreferrer">Cyber Safety →</a></div>
+<div class="card">
+<div class="icon">🎨</div>
+<h3>Canva</h3>
+<p>Create designs, posters and social media graphics.</p>
+<a href="https://www.canva.com/" target="_blank" rel="noopener">Open Canva →</a>
+</div>
 
-<div class="card"><div class="icon">🧰</div><h3>Useful Tools</h3><p>Find helpful online resources for learning and creativity.</p><a href="https://www.photopea.com/" target="_blank" rel="noopener noreferrer">Open Tools →</a></div>
-
-<div class="card"><div class="icon">🌐</div><h3>Web Development</h3><p>Explore websites, HTML, CSS and coding basics.</p><a href="https://www.w3schools.com/" target="_blank" rel="noopener noreferrer">Learn Coding →</a></div>
-
-<div class="card"><div class="icon">🚀</div><h3>Digital Future</h3><p>Explore innovation, robotics and the future of science.</p><a href="https://www.nasa.gov/" target="_blank" rel="noopener noreferrer">Explore Future →</a></div>
+<div class="card">
+<div class="icon">🎬</div>
+<h3>CapCut</h3>
+<p>Explore video editing and creative tools.</p>
+<a href="https://www.capcut.com/" target="_blank" rel="noopener">Open CapCut →</a>
+</div>
 
 </div>
 </section>
 
-<section class="section" id="about">
-<h2>About Me</h2>
-<p class="sub">Behind NikhilTechWorld</p>
-<div class="about">
-<h3 style="color:#00b7ff;margin-bottom:15px">Hey, I'm Nikhil 👋</h3>
-<p>Welcome to NikhilTechWorld! This platform is all about technology, AI, digital tools, cybersecurity awareness and learning new things. My goal is to explore technology and share useful knowledge with everyone.</p>
+<!-- BLOG -->
+
+<section class="section" id="blog">
+
+<h2>Tech <span>Blog</span></h2>
+<p class="sub">Technology knowledge and useful tutorials.</p>
+
+<div class="panel">
+
+<div id="blogPosts">
+
+<div class="blog-item">
+<h3>What is Artificial Intelligence?</h3>
+<p>AI is a technology that allows computers to perform tasks that normally require human intelligence.</p>
+</div>
+
+<div class="blog-item">
+<h3>What is Cybersecurity?</h3>
+<p>Cybersecurity protects computers, networks and information from digital threats.</p>
+</div>
+
+<div class="blog-item">
+<h3>Learn Website Development</h3>
+<p>Start learning HTML, CSS and JavaScript to build your own website.</p>
+</div>
+
+</div>
+
 </div>
 </section>
 
-<section class="section" id="social">
-<h2>Connect With Me</h2>
-<p class="sub">Follow my journey on social media</p>
+<!-- PROFILE -->
+
+<section class="section" id="profile">
+
+<h2>My <span>Profile</span></h2>
+<p class="sub">Connect with Nikhil Gautam.</p>
 
 <div class="profile">
 
-<img src="lv_0_20260823142813.jpg" alt="Nikhil Gautam Profile Photo" class="profile-photo">
+<img src="lv_0_20260823142813.jpg"
+alt="Nikhil Gautam Profile Photo"
+class="profile-photo">
 
-<h3>Nikhil Gautam</h3>
+<h3 style="font-size:26px;margin-bottom:10px">Nikhil Gautam</h3>
+
 <p>Tech Explorer | Content Creator | Digital Learner</p>
 
 <div class="socials">
 
-<a class="social-btn youtube" href="https://youtube.com/@gamingadda-g3m" target="_blank" rel="noopener noreferrer">▶ YouTube Channel</a>
+<a class="social-btn youtube"
+href="https://youtube.com/@gamingadda-g3m"
+target="_blank" rel="noopener">▶ YouTube</a>
 
-<a class="social-btn instagram" href="https://www.instagram.com/nikhilgoutam86/" target="_blank" rel="noopener noreferrer">◎ Instagram</a>
+<a class="social-btn instagram"
+href="https://www.instagram.com/nikhilgoutam86/"
+target="_blank" rel="noopener">◎ Instagram</a>
 
-<a class="social-btn telegram" href="https://t.me/Nikhilgautam09" target="_blank" rel="noopener noreferrer">✈ Telegram Channel</a>
+<a class="social-btn telegram"
+href="https://t.me/Nikhilgautam09"
+target="_blank" rel="noopener">✈ Telegram</a>
 
 </div>
+</div>
+</section>
+
+<!-- USER PROFILE DEMO -->
+
+<section class="section" id="user">
+
+<h2>User <span>Dashboard</span></h2>
+<p class="sub">Create a local demo profile in this browser.</p>
+
+<div class="panel">
+
+<input id="userName" placeholder="Enter your display name">
+<button onclick="saveProfile()">Save Profile</button>
+
+<p id="userStatus" class="status">
+No local profile saved.
+</p>
+
+</div>
+</section>
+
+<!-- ADMIN DASHBOARD DEMO -->
+
+<section class="section" id="admin">
+
+<h2>Admin <span>Dashboard</span></h2>
+<p class="sub">Local content management demo.</p>
+
+<div class="panel">
+
+<h3 style="margin-bottom:12px">Add a Blog Article</h3>
+
+<input id="postTitle" placeholder="Article title">
+
+<textarea id="postContent"
+placeholder="Write your article..."></textarea>
+
+<button onclick="addPost()">Publish Article</button>
+
+<p class="status" id="adminStatus">
+Articles are saved in this browser only.
+</p>
+
+</div>
+</section>
+
+<!-- ABOUT -->
+
+<section class="section" id="about">
+
+<h2>About <span>Me</span></h2>
+<p class="sub">Behind NikhilTechWorld</p>
+
+<div class="panel" style="text-align:center">
+
+<h3 style="color:var(--green);margin-bottom:15px">
+Hey, I'm Nikhil 👋
+</h3>
+
+<p style="color:var(--muted);line-height:1.8">
+Welcome to NikhilTechWorld! This platform is all about
+technology, AI, digital tools, ethical cybersecurity
+awareness and learning new things.
+
+My goal is to explore technology and share useful
+knowledge with everyone.
+</p>
+
 </div>
 </section>
 
 <footer>
 <p>Made with ❤️ by <strong>NikhilTechWorld</strong></p>
-<p style="margin-top:10px;font-size:12px">© 2026 | Learn • Explore • Innovate</p>
+<p style="margin-top:10px;font-size:12px">
+© 2026 | Learn • Explore • Innovate
+</p>
 </footer>
+
+<script>
+
+// MOBILE MENU
+
+function toggleMenu(){
+document.getElementById("navigation").classList.toggle("open");
+}
+
+document.querySelectorAll("#navigation a").forEach(link=>{
+link.addEventListener("click",()=>{
+document.getElementById("navigation").classList.remove("open");
+});
+});
+
+// SEARCH SYSTEM
+
+function searchSite(){
+
+let query=document.getElementById("siteSearch").value.toLowerCase();
+
+let cards=document.querySelectorAll(".searchable");
+let visible=0;
+
+cards.forEach(card=>{
+let match=card.innerText.toLowerCase().includes(query);
+card.classList.toggle("hidden",!match);
+if(match)visible++;
+});
+
+document.getElementById("noResults")
+.classList.toggle("hidden",visible!==0);
+
+}
+
+// TERMINAL SIMULATION
+
+function runCommand(){
+
+let input=document.getElementById("terminalInput");
+let output=document.getElementById("terminalOutput");
+
+let cmd=input.value.trim().toLowerCase();
+
+if(!cmd)return;
+
+let responses={
+"help":"Available commands: help, about, date, skills, clear, status",
+"about":"NikhilTechWorld - Technology learning platform.",
+"skills":"HTML | CSS | JavaScript | AI | Cybersecurity Awareness",
+"status":"Demo terminal is running normally.",
+"date":new Date().toLocaleDateString("en-IN")
+};
+
+if(cmd==="clear"){
+output.innerHTML="Terminal cleared.<br>$";
+input.value="";
+return;
+}
+
+let response=responses[cmd] || "Command not found. Type help.";
+
+output.innerHTML+=
+"<br><span style='color:white'>$ "+escapeHTML(cmd)+"</span><br>"+
+"<span style='color:#00ff88'>"+escapeHTML(response)+"</span><br>$";
+
+output.scrollTop=output.scrollHeight;
+input.value="";
+
+}
+
+function escapeHTML(str){
+return String(str).replace(/[&<>"']/g,function(c){
+return {
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#39;"
+}[c];
+});
+}
+
+// LOCAL USER PROFILE DEMO
+
+function saveProfile(){
+
+let name=document.getElementById("userName").value.trim();
+
+if(!name){
+alert("Please enter your name.");
+return;
+}
+
+try{
+localStorage.setItem("ntw_demo_profile",name);
+document.getElementById("userStatus").innerText=
+"Welcome, "+name+"! Your local profile is saved.";
+}catch(e){
+alert("Browser storage unavailable.");
+}
+
+}
+
+try{
+let saved=localStorage.getItem("ntw_demo_profile");
+if(saved){
+document.getElementById("userName").value=saved;
+document.getElementById("userStatus").innerText=
+"Welcome back, "+saved+"!";
+}
+}catch(e){}
+
+// LOCAL BLOG MANAGEMENT DEMO
+
+function addPost(){
+
+let title=document.getElementById("postTitle").value.trim();
+let content=document.getElementById("postContent").value.trim();
+
+if(!title || !content){
+alert("Please enter title and article.");
+return;
+}
+
+try{
+
+let posts=JSON.parse(localStorage.getItem("ntw_posts")||"[]");
+
+posts.push({title,content});
+
+localStorage.setItem("ntw_posts",JSON.stringify(posts));
+
+renderPosts();
+
+document.getElementById("postTitle").value="";
+document.getElementById("postContent").value="";
+
+document.getElementById("adminStatus").innerText=
+"Article added successfully in this browser.";
+
+}catch(e){
+alert("Unable to save article.");
+}
+
+}
+
+function renderPosts(){
+
+let posts=JSON.parse(localStorage.getItem("ntw_posts")||"[]");
+
+let container=document.getElementById("blogPosts");
+
+posts.forEach((post,index)=>{
+
+let id="post-"+index;
+
+if(document.getElementById(id))return;
+
+let article=document.createElement("div");
+article.className="blog-item";
+article.id=id;
+
+let heading=document.createElement("h3");
+heading.textContent=post.title;
+
+let paragraph=document.createElement("p");
+paragraph.textContent=post.content;
+
+article.appendChild(heading);
+article.appendChild(paragraph);
+
+container.appendChild(article);
+
+});
+
+}
+
+try{
+renderPosts();
+}catch(e){}
+
+</script>
 
 </body>
 </html>
