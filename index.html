@@ -3,190 +3,230 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#08090d">
-<meta name="description" content="NikhilTechWorld - Explore AI, Technology, Coding and Digital Innovation.">
+<meta name="description" content="NikhilTechWorld - AI, Technology and Coding">
 <meta name="google-site-verification" content="KxcFjF96uPSOEA4XgHbFGhJVWu19PWM3XviVXCf2Q7o">
 <title>NikhilTechWorld | GOD MODE X</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
 :root{
- --bg:#08090d;--panel:#11131b;--gold:#e9c46a;
- --purple:#a78bfa;--green:#52e0a0;--text:#f4f2ed;
- --muted:#9a9baa;--line:rgba(255,255,255,.09);
+--bg:#08090d;--panel:#11131b;--gold:#e9c46a;
+--purple:#a78bfa;--green:#52e0a0;
+--text:#f4f2ed;--muted:#9a9baa;--line:#ffffff16;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
- background:var(--bg);color:var(--text);
- font-family:Inter,Arial,sans-serif;overflow-x:hidden;
-}
-body:before{
- content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
- background:
- radial-gradient(ellipse at 10% 10%,rgba(167,139,250,.13),transparent 35%),
- radial-gradient(ellipse at 90% 30%,rgba(233,196,106,.10),transparent 35%),
- radial-gradient(ellipse at 50% 100%,rgba(82,224,160,.08),transparent 35%);
-}
+body{background:var(--bg);color:var(--text);font-family:Inter,Arial;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 button{font:inherit;cursor:pointer}
 .container{width:min(1160px,92%);margin:auto}
-header{
- position:sticky;top:0;z-index:100;
- background:rgba(8,9,13,.85);backdrop-filter:blur(18px);
- border-bottom:1px solid var(--line);
-}
-.nav{height:75px;display:flex;align-items:center;justify-content:space-between;gap:15px}
-.logo{font-family:Orbitron,sans-serif;font-size:19px;font-weight:900;color:var(--gold)}
-.logo span{color:var(--purple)}
-nav{display:flex;gap:22px;align-items:center}
-nav a{font-size:13px;color:var(--muted);transition:.3s}
-nav a:hover{color:var(--gold)}
-.menu{display:none;background:none;border:1px solid var(--line);color:white;padding:9px 12px;border-radius:10px}
-.btn{
- display:inline-flex;align-items:center;justify-content:center;gap:8px;
- padding:12px 19px;border-radius:10px;border:1px solid rgba(233,196,106,.45);
- background:linear-gradient(135deg,#e9c46a,#bd9140);
- color:#17130a;font-weight:800;font-size:13px;transition:.25s;
-}
-.btn:hover{transform:translateY(-3px);box-shadow:0 8px 30px #e9c46a35}
-.btn.secondary{background:transparent;color:var(--gold)}
-.hero{min-height:690px;display:grid;place-items:center;text-align:center;padding:90px 0 75px}
-.tag{
- display:inline-block;padding:9px 15px;border:1px solid #a78bfa55;
- color:var(--purple);border-radius:30px;font-size:11px;letter-spacing:2px;
- background:#a78bfa12;margin-bottom:25px;
-}
-.hero h1{
- font-family:Orbitron,sans-serif;font-size:clamp(35px,7vw,76px);
- line-height:1.15;letter-spacing:-2px;
-}
 .gradient{
- background:linear-gradient(90deg,var(--gold),#fff,var(--purple));
- -webkit-background-clip:text;background-clip:text;color:transparent;
+background:linear-gradient(90deg,var(--gold),white,var(--purple));
+-webkit-background-clip:text;background-clip:text;color:transparent
 }
-.hero p{max-width:650px;margin:22px auto;color:var(--muted);line-height:1.8;font-size:15px}
+.btn{
+display:inline-flex;justify-content:center;align-items:center;
+padding:13px 20px;border:0;border-radius:9px;
+background:linear-gradient(135deg,#e9c46a,#bd9140);
+color:#111;font-weight:800;font-size:13px;
+}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.secondary{background:transparent;border:1px solid var(--gold);color:var(--gold)}
+input{
+width:100%;padding:13px;border-radius:9px;
+border:1px solid var(--line);background:#090b11;
+color:white;outline:none;margin-top:7px
+}
+input:focus{border-color:var(--gold)}
+label{font-size:12px;color:var(--muted)}
+.field{margin:15px 0}
+
+/* LOGIN SCREEN */
+#loginScreen{
+position:fixed;inset:0;z-index:9999;
+background:
+radial-gradient(ellipse at 10% 10%,#a78bfa22,transparent 40%),
+radial-gradient(ellipse at 90% 90%,#52e0a022,transparent 40%),
+#08090d;
+display:flex;align-items:center;justify-content:center;
+padding:18px;overflow-y:auto;
+}
+.login-card{
+width:100%;max-width:430px;
+background:#11131bee;border:1px solid #e9c46a55;
+border-radius:22px;padding:30px;
+box-shadow:0 0 60px #a78bfa15;
+}
+.login-logo{
+font:900 25px Orbitron;text-align:center;
+color:var(--gold);margin-bottom:10px;
+}
+.login-logo span{color:var(--purple)}
+.login-sub{text-align:center;color:var(--muted);font-size:12px;margin-bottom:25px}
+.login-tag{text-align:center;color:var(--green);font-size:10px;letter-spacing:3px;margin-bottom:20px}
+.tabs{display:flex;gap:10px;margin-bottom:22px}
+.tabs button{
+flex:1;padding:12px;border:1px solid var(--line);
+background:transparent;color:white;border-radius:9px;
+}
+.tabs button.active{background:var(--gold);color:#111;font-weight:800}
+.login-card .btn{width:100%;margin-top:12px}
+#authMessage{font-size:12px;color:var(--green);line-height:1.7;margin-top:16px;text-align:center}
+.forgot{display:block;text-align:right;color:var(--purple);font-size:12px;margin-top:12px;background:none;border:0;width:100%}
+.security{text-align:center;color:#777;font-size:10px;margin-top:22px}
+#loginScreen[hidden]{display:none!important}
+
+/* MAIN SITE */
+#appShell[hidden]{display:none!important}
+header{
+position:sticky;top:0;z-index:100;
+background:#08090de8;backdrop-filter:blur(15px);
+border-bottom:1px solid var(--line)
+}
+.nav{height:75px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font:900 19px Orbitron;color:var(--gold)}
+.logo span{color:var(--purple)}
+nav{display:flex;gap:19px}
+nav a{font-size:12px;color:var(--muted)}
+nav a:hover{color:var(--gold)}
+.menu{display:none;background:none;color:white;border:1px solid var(--line);padding:9px;border-radius:8px}
+.user-area{display:flex;gap:10px;align-items:center}
+.user-email{font-size:11px;color:var(--green);max-width:120px;overflow:hidden;text-overflow:ellipsis}
+.logout{background:transparent;border:1px solid #ef7777;color:#ef7777;padding:9px 12px;border-radius:8px;font-size:11px}
+.hero{
+min-height:650px;display:grid;place-items:center;
+text-align:center;padding:80px 0
+}
+.tag{
+display:inline-block;padding:9px 15px;border:1px solid #a78bfa55;
+color:var(--purple);border-radius:30px;font-size:11px;
+letter-spacing:2px;margin-bottom:25px
+}
+.hero h1{font:900 clamp(35px,7vw,76px)/1.2 Orbitron}
+.hero p{max-width:650px;margin:22px auto;color:var(--muted);line-height:1.8;font-size:14px}
 .hero-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px}
-.hero-stats{display:flex;justify-content:center;gap:55px;margin-top:65px;flex-wrap:wrap}
+.hero-stats{display:flex;justify-content:center;gap:55px;margin-top:60px;flex-wrap:wrap}
 .stat strong{display:block;color:var(--gold);font:700 25px Orbitron}
 .stat span{font-size:11px;color:var(--muted)}
-.section{padding:85px 0}
-.section-head{text-align:center;margin-bottom:42px}
+.section{padding:75px 0}
+.section-head{text-align:center;margin-bottom:40px}
 .eyebrow{color:var(--green);font-size:11px;letter-spacing:3px;font-weight:800}
-.section h2{font:700 clamp(25px,4vw,40px) Orbitron;margin-top:12px}
-.section-head p{color:var(--muted);margin-top:12px;font-size:13px}
+h2{font:700 clamp(25px,4vw,40px) Orbitron;margin-top:12px}
+.section-head p{color:var(--muted);font-size:13px;margin-top:12px}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .card{
- background:linear-gradient(145deg,#151722,#0e1017);
- border:1px solid var(--line);border-radius:18px;padding:25px;
- transition:.3s;position:relative;overflow:hidden;
+background:linear-gradient(145deg,#151722,#0e1017);
+border:1px solid var(--line);border-radius:17px;padding:24px;
+transition:.3s;position:relative
 }
-.card:before{
- content:"";position:absolute;top:0;left:0;width:100%;height:2px;
- background:linear-gradient(90deg,transparent,var(--gold),var(--purple),transparent);
- opacity:.65;
-}
-.card:hover{transform:translateY(-7px);border-color:#e9c46a65;box-shadow:0 15px 40px #0007}
-.card-icon{font-size:30px;margin-bottom:17px}
+.card:hover{transform:translateY(-6px);border-color:#e9c46a77}
+.card-icon{font-size:30px;margin-bottom:15px}
 .card h3{font-size:17px;margin-bottom:10px}
-.card p{font-size:13px;line-height:1.7;color:var(--muted);margin-bottom:18px}
+.card p{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:17px}
 .card a{font-size:12px;color:var(--gold);font-weight:700}
-.terminal{
- background:#090c10;border:1px solid #52e0a044;border-radius:17px;
- overflow:hidden;box-shadow:0 20px 70px #0008;
-}
-.term-top{padding:14px 18px;border-bottom:1px solid var(--line);display:flex;gap:7px;align-items:center}
-.dot{width:9px;height:9px;border-radius:50%;background:#ef7777}
-.dot:nth-child(2){background:#e9c46a}.dot:nth-child(3){background:#52e0a0}
-.term-title{margin-left:10px;color:var(--muted);font-size:11px}
-.term-body{padding:22px;font:13px/1.9 monospace;min-height:245px;color:var(--green)}
-.term-line{color:#d9e4dc}
-.term-input{display:flex;gap:8px;margin-top:12px}
-.term-input span{color:var(--gold)}
-.term-input input{background:none;border:0;outline:0;color:white;flex:1;min-width:0;font:13px monospace}
-.term-input button{background:#52e0a0;color:#06140d;border:0;padding:7px 13px;border-radius:6px;font-weight:800}
+.terminal{background:#090c10;border:1px solid #52e0a044;border-radius:17px;overflow:hidden}
+.term-top{padding:14px;border-bottom:1px solid var(--line);color:var(--muted);font-size:12px}
+.term-body{padding:20px;font:13px/1.9 monospace;color:var(--green);min-height:230px}
+.term-input{display:flex;gap:8px;margin-top:15px}
+.term-input input{flex:1;min-width:0;margin:0;background:transparent}
+.term-input button{background:var(--green);border:0;padding:8px 14px;border-radius:6px}
 .profile{display:grid;grid-template-columns:260px 1fr;gap:35px;align-items:center}
-.profile img{
- width:100%;aspect-ratio:1;object-fit:cover;border-radius:25px;
- border:2px solid var(--gold);box-shadow:0 0 35px #e9c46a25;
-}
-.profile h3{font:700 27px Orbitron;margin:12px 0}
-.profile p{color:var(--muted);line-height:1.8;font-size:14px;margin-bottom:20px}
+.profile img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:22px;border:2px solid var(--gold)}
+.profile h3{font:700 26px Orbitron;margin:12px 0}
+.profile p{color:var(--muted);font-size:14px;line-height:1.8;margin-bottom:20px}
 .socials{display:flex;gap:10px;flex-wrap:wrap}
-.socials a{padding:10px 14px;border:1px solid var(--line);border-radius:9px;font-size:12px}
-.socials a:hover{border-color:var(--gold);color:var(--gold)}
-.auth{
- max-width:560px;margin:auto;background:var(--panel);
- border:1px solid var(--line);border-radius:20px;padding:27px;
-}
-.auth-tabs{display:flex;gap:10px;margin-bottom:20px}
-.auth-tabs button{flex:1;padding:11px;border-radius:9px;border:1px solid var(--line);background:transparent;color:white}
-.auth-tabs button.active{background:var(--gold);color:#111}
-.field{margin:13px 0}
-.field label{display:block;color:var(--muted);font-size:12px;margin-bottom:7px}
-.field input{
- width:100%;padding:13px;border-radius:9px;border:1px solid var(--line);
- background:#090b11;color:white;outline:none;
-}
-.field input:focus{border-color:var(--gold)}
-.auth .btn{width:100%;margin-top:12px}
-#authMessage{font-size:12px;color:var(--green);margin-top:14px;line-height:1.6}
-footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:var(--muted);font-size:12px}
+.socials a{padding:10px;border:1px solid var(--line);border-radius:9px;font-size:12px}
+.socials a:hover{color:var(--gold);border-color:var(--gold)}
+footer{border-top:1px solid var(--line);padding:28px;text-align:center;color:var(--muted);font-size:12px}
 footer strong{color:var(--gold)}
 #toast{
- position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);
- opacity:0;pointer-events:none;background:#20232e;color:white;
- padding:12px 18px;border:1px solid var(--gold);border-radius:10px;
- font-size:12px;transition:.3s;z-index:200;
+position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);
+opacity:0;pointer-events:none;background:#20232e;padding:12px 18px;
+border:1px solid var(--gold);border-radius:10px;z-index:10000;font-size:12px
 }
 #toast.show{opacity:1;transform:translate(-50%,0)}
 @media(max-width:760px){
- nav{display:none;position:absolute;top:75px;left:0;right:0;padding:20px;
- background:#10121a;flex-direction:column;border-bottom:1px solid var(--line)}
- nav.open{display:flex}
- .menu{display:block}
- .nav>.btn{display:none}
- .grid{grid-template-columns:1fr}
- .profile{grid-template-columns:1fr;text-align:center}
- .profile img{max-width:230px;margin:auto}
- .socials{justify-content:center}
- .hero{min-height:590px}
- .hero-stats{gap:25px}
- .section{padding:65px 0}
-}
-@media(prefers-reduced-motion:reduce){
- *,*:before,*:after{scroll-behavior:auto!important;transition:none!important}
+nav{display:none;position:absolute;top:75px;left:0;right:0;padding:20px;background:#10121a;flex-direction:column}
+nav.open{display:flex}
+.menu{display:block}
+.user-email{display:none}
+.grid{grid-template-columns:1fr}
+.profile{grid-template-columns:1fr;text-align:center}
+.profile img{max-width:230px;margin:auto}
+.socials{justify-content:center}
+.hero-stats{gap:25px}
 }
 </style>
 </head>
 
 <body>
+
+<!-- LOGIN SCREEN: FIRST PAGE -->
+<div id="loginScreen">
+ <div class="login-card">
+  <div class="login-logo">NIKHIL<span>TECH</span></div>
+  <div class="login-tag">✦ GOD MODE X ACCESS ✦</div>
+  <p class="login-sub">Welcome to your digital technology universe.</p>
+
+  <div class="tabs">
+   <button type="button" id="loginTab" class="active">LOGIN</button>
+   <button type="button" id="signupTab">SIGN UP</button>
+  </div>
+
+  <form id="authForm">
+   <div class="field" id="nameField" hidden>
+    <label>Your Name</label>
+    <input id="fullName" type="text" placeholder="Enter your name" autocomplete="name">
+   </div>
+   <div class="field">
+    <label>Email Address</label>
+    <input id="email" type="email" placeholder="Enter your email" required autocomplete="email">
+   </div>
+   <div class="field">
+    <label>Password</label>
+    <input id="password" type="password" placeholder="Minimum 6 characters" required minlength="6" autocomplete="current-password">
+   </div>
+   <button class="btn" id="authSubmit" type="submit">LOGIN TO WEBSITE ↗</button>
+  </form>
+
+  <button class="forgot" id="forgotBtn" type="button">Forgot Password?</button>
+  <p id="authMessage" aria-live="polite">Login to enter NikhilTechWorld.</p>
+  <div class="security">🔒 SECURE ACCOUNT ACCESS • SUPABASE AUTH</div>
+ </div>
+</div>
+
+<!-- MAIN WEBSITE: HIDDEN UNTIL AUTHENTICATED -->
+<div id="appShell" hidden>
+
 <header>
  <div class="container nav">
   <a href="#home" class="logo">NIKHIL<span>TECH</span></a>
   <nav id="navLinks">
-   <a href="#home">Home</a><a href="#explore">Explore</a>
-   <a href="#terminal">Terminal</a><a href="#ai">AI Tools</a>
-   <a href="#profile">Profile</a><a href="#account">Account</a>
+   <a href="#home">Home</a>
+   <a href="#explore">Explore</a>
+   <a href="#terminal">Terminal</a>
+   <a href="#ai">AI Tools</a>
+   <a href="#blog">Blog</a>
+   <a href="#profile">Profile</a>
   </nav>
-  <a class="btn" href="#account">JOIN NOW ↗</a>
-  <button class="menu" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+  <div class="user-area">
+   <span class="user-email" id="userEmail"></span>
+   <button class="logout" id="logoutBtn">LOGOUT ↗</button>
+  </div>
+  <button class="menu" onclick="toggleMenu()">☰</button>
  </div>
 </header>
 
 <main>
+
 <section class="hero container" id="home">
  <div>
   <div class="tag">✦ THE NEXT LEVEL OF TECHNOLOGY ✦</div>
   <h1>WELCOME TO<br><span class="gradient">GOD MODE X</span></h1>
-  <p>
-   Explore the future of technology. Discover AI tools, coding,
-   digital creativity and futuristic ideas — all in one place.
-  </p>
+  <p>Explore the future of technology. Discover AI tools, coding, digital creativity and futuristic ideas — all in one place.</p>
   <div class="hero-actions">
    <a href="#explore" class="btn">EXPLORE NOW ↗</a>
    <a href="#terminal" class="btn secondary">OPEN TERMINAL</a>
@@ -208,17 +248,17 @@ footer strong{color:var(--gold)}
  <div class="grid">
   <article class="card">
    <div class="card-icon">⌘</div><h3>Hacker Terminal</h3>
-   <p>Try an interactive educational terminal with fun demo commands.</p>
+   <p>Interactive educational terminal with demo commands.</p>
    <a href="#terminal">OPEN TERMINAL →</a>
   </article>
   <article class="card">
    <div class="card-icon">✧</div><h3>AI Command Center</h3>
-   <p>Explore popular AI platforms for learning and creativity.</p>
+   <p>Explore AI platforms for learning and creativity.</p>
    <a href="#ai">EXPLORE AI →</a>
   </article>
   <article class="card">
    <div class="card-icon">◈</div><h3>Tech Knowledge</h3>
-   <p>Discover coding, internet, science and technology concepts.</p>
+   <p>Discover coding, internet and technology concepts.</p>
    <a href="#blog">READ MORE →</a>
   </article>
  </div>
@@ -228,20 +268,19 @@ footer strong{color:var(--gold)}
  <div class="section-head">
   <div class="eyebrow">INTERACTIVE EXPERIENCE</div>
   <h2>Hacker <span class="gradient">Terminal</span></h2>
-  <p>A safe, simulated terminal for learning commands.</p>
+  <p>Safe simulated educational terminal.</p>
  </div>
  <div class="terminal">
-  <div class="term-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="term-title">NikhilTechWorld — Demo Terminal</span></div>
+  <div class="term-top">🔴 🟡 🟢 &nbsp; NikhilTechWorld Demo Terminal</div>
   <div class="term-body">
    <div id="termOutput">
     <div>Welcome to NikhilTechWorld Terminal.</div>
-    <div>Type <b>help</b> to see available commands.</div>
-    <div class="term-line">Demo mode: commands do not access your device.</div>
+    <div>Type help to see commands.</div>
    </div>
    <form class="term-input" id="termForm">
     <span>visitor@ntw:~$</span>
-    <input id="termCommand" autocomplete="off" placeholder="Type help..." aria-label="Terminal command">
-    <button type="submit">RUN</button>
+    <input id="termCommand" placeholder="Type help..." autocomplete="off">
+    <button>RUN</button>
    </form>
   </div>
  </div>
@@ -254,11 +293,11 @@ footer strong{color:var(--gold)}
   <p>Useful AI platforms in one place.</p>
  </div>
  <div class="grid">
-  <article class="card"><div class="card-icon">🤖</div><h3>ChatGPT</h3><p>Ask questions, learn concepts and brainstorm ideas.</p><a href="https://chatgpt.com/" target="_blank" rel="noopener">OPEN CHATGPT ↗</a></article>
+  <article class="card"><div class="card-icon">🤖</div><h3>ChatGPT</h3><p>Ask questions and learn.</p><a href="https://chatgpt.com/" target="_blank" rel="noopener">OPEN CHATGPT ↗</a></article>
   <article class="card"><div class="card-icon">✨</div><h3>Google Gemini</h3><p>Explore Google's AI assistant.</p><a href="https://gemini.google.com/" target="_blank" rel="noopener">OPEN GEMINI ↗</a></article>
-  <article class="card"><div class="card-icon">🎨</div><h3>Canva</h3><p>Create graphics, presentations and designs.</p><a href="https://www.canva.com/" target="_blank" rel="noopener">OPEN CANVA ↗</a></article>
-  <article class="card"><div class="card-icon">🎬</div><h3>CapCut</h3><p>Edit videos and create social media content.</p><a href="https://www.capcut.com/" target="_blank" rel="noopener">OPEN CAPCUT ↗</a></article>
-  <article class="card"><div class="card-icon">💻</div><h3>GitHub</h3><p>Explore code and build your projects.</p><a href="https://github.com/" target="_blank" rel="noopener">OPEN GITHUB ↗</a></article>
+  <article class="card"><div class="card-icon">🎨</div><h3>Canva</h3><p>Create graphics and designs.</p><a href="https://www.canva.com/" target="_blank" rel="noopener">OPEN CANVA ↗</a></article>
+  <article class="card"><div class="card-icon">🎬</div><h3>CapCut</h3><p>Edit videos and create content.</p><a href="https://www.capcut.com/" target="_blank" rel="noopener">OPEN CAPCUT ↗</a></article>
+  <article class="card"><div class="card-icon">💻</div><h3>GitHub</h3><p>Explore code and projects.</p><a href="https://github.com/" target="_blank" rel="noopener">OPEN GITHUB ↗</a></article>
   <article class="card"><div class="card-icon">🌐</div><h3>MDN Web Docs</h3><p>Learn HTML, CSS and JavaScript.</p><a href="https://developer.mozilla.org/" target="_blank" rel="noopener">LEARN WEB ↗</a></article>
  </div>
 </section>
@@ -270,9 +309,9 @@ footer strong{color:var(--gold)}
   <p>Learn something new every day.</p>
  </div>
  <div class="grid">
-  <article class="card"><div class="card-icon">🌌</div><h3>Future of AI</h3><p>Understand how artificial intelligence is changing the digital world.</p><a href="https://www.ibm.com/think/topics/artificial-intelligence" target="_blank" rel="noopener">EXPLORE TOPIC ↗</a></article>
-  <article class="card"><div class="card-icon">🔐</div><h3>Cyber Safety</h3><p>Learn about passwords, privacy and staying safe online.</p><a href="https://staysafeonline.org/" target="_blank" rel="noopener">LEARN SAFETY ↗</a></article>
-  <article class="card"><div class="card-icon">🚀</div><h3>Web Development</h3><p>Start building websites with HTML, CSS and JavaScript.</p><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development" target="_blank" rel="noopener">START LEARNING ↗</a></article>
+  <article class="card"><div class="card-icon">🌌</div><h3>Future of AI</h3><p>Understand artificial intelligence.</p><a href="https://www.ibm.com/think/topics/artificial-intelligence" target="_blank" rel="noopener">EXPLORE ↗</a></article>
+  <article class="card"><div class="card-icon">🔐</div><h3>Cyber Safety</h3><p>Learn about passwords and privacy.</p><a href="https://staysafeonline.org/" target="_blank" rel="noopener">LEARN ↗</a></article>
+  <article class="card"><div class="card-icon">🚀</div><h3>Web Development</h3><p>Learn HTML, CSS and JavaScript.</p><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development" target="_blank" rel="noopener">START ↗</a></article>
  </div>
 </section>
 
@@ -286,11 +325,7 @@ footer strong{color:var(--gold)}
   <div>
    <div class="eyebrow">FOUNDER • NIKHILTECHWORLD</div>
    <h3>Nikhil Gautam</h3>
-   <p>
-    Welcome to my digital world! I love technology, gaming,
-    AI and learning new things. My goal is to make technology
-    easier and more interesting for everyone.
-   </p>
+   <p>Welcome to my digital world! I love technology, gaming, AI and learning new things. My goal is to make technology easier and more interesting for everyone.</p>
    <div class="socials">
     <a href="https://youtube.com/@gamingadda-g3m" target="_blank" rel="noopener">▶ YouTube</a>
     <a href="https://www.instagram.com/nikhilgoutam86/" target="_blank" rel="noopener">◎ Instagram</a>
@@ -300,35 +335,6 @@ footer strong{color:var(--gold)}
  </div>
 </section>
 
-<section class="section container" id="account">
- <div class="section-head">
-  <div class="eyebrow">YOUR DIGITAL IDENTITY</div>
-  <h2>Member <span class="gradient">Access</span></h2>
-  <p>Create an account or sign in to your existing account.</p>
- </div>
- <div class="auth">
-  <div class="auth-tabs">
-   <button type="button" id="loginTab" class="active" onclick="setAuthMode('login')">LOGIN</button>
-   <button type="button" id="signupTab" onclick="setAuthMode('signup')">SIGN UP</button>
-  </div>
-  <form id="authForm">
-   <div class="field" id="nameField" hidden>
-    <label for="fullName">Your Name</label>
-    <input id="fullName" type="text" placeholder="Enter your name" autocomplete="name">
-   </div>
-   <div class="field">
-    <label for="email">Email Address</label>
-    <input id="email" type="email" placeholder="Enter your email" required autocomplete="email">
-   </div>
-   <div class="field">
-    <label for="password">Password</label>
-    <input id="password" type="password" placeholder="Enter password" required minlength="6" autocomplete="current-password">
-   </div>
-   <button class="btn" id="authSubmit" type="submit">LOGIN TO ACCOUNT ↗</button>
-  </form>
-  <p id="authMessage" aria-live="polite">Connect your account using Supabase authentication.</p>
- </div>
-</section>
 </main>
 
 <footer>
@@ -337,118 +343,193 @@ footer strong{color:var(--gold)}
   © <span id="year"></span> NikhilTechWorld. Built with passion.
  </div>
 </footer>
+</div>
+
 <div id="toast" role="status"></div>
 
 <script>
-const SUPABASE_URL = "https://ihzvaqrkisosnbrmnjrv.supabase.co";
-const SUPABASE_KEY = "sb_publishable_Kbvl3_dTe7s63EnpD7DOBg_TGJQ5bcR";
+/* SUPABASE CONFIGURATION */
+const SUPABASE_URL="https://ihzvaqrkisosnbrmnjrv.supabase.co";
+const SUPABASE_KEY="sb_publishable_Kbvl3_dTe7s63EnpD7DOBg_TGJQ5bcR";
 
-let supabaseClient = null;
-if (window.supabase && SUPABASE_URL.startsWith("https://") && SUPABASE_KEY) {
-  supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-}
+const client=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
 
-document.getElementById("year").textContent = new Date().getFullYear();
+const loginScreen=document.getElementById("loginScreen");
+const appShell=document.getElementById("appShell");
+const message=document.getElementById("authMessage");
+const submit=document.getElementById("authSubmit");
 
-function toggleMenu(){
- document.getElementById("navLinks").classList.toggle("open");
-}
-document.querySelectorAll("#navLinks a").forEach(link=>{
- link.addEventListener("click",()=>document.getElementById("navLinks").classList.remove("open"));
-});
-
-function toast(message){
- const el=document.getElementById("toast");
- el.textContent=message;
- el.classList.add("show");
- setTimeout(()=>el.classList.remove("show"),2600);
-}
-
-// Educational demo terminal only
-const output=document.getElementById("termOutput");
-const commands={
- help:"Available commands: help, about, date, skills, status, clear",
- about:"NikhilTechWorld — a technology and AI learning project.",
- date:()=>new Date().toString(),
- skills:"HTML • CSS • JavaScript • AI exploration • Web design",
- status:"SYSTEM STATUS: Demo terminal running normally.",
-};
-document.getElementById("termForm").addEventListener("submit",e=>{
- e.preventDefault();
- const input=document.getElementById("termCommand");
- const command=input.value.trim().toLowerCase();
- if(!command)return;
- const line=document.createElement("div");
- line.className="term-line";
- line.textContent="visitor@ntw:~$ "+command;
- output.appendChild(line);
- if(command==="clear"){
-  output.innerHTML="<div>Terminal cleared. Type help to continue.</div>";
- }else{
-  const result=document.createElement("div");
-  result.textContent=commands[command] ? (typeof commands[command]==="function"?commands[command]():commands[command]) : "Command not found. Type help.";
-  output.appendChild(result);
- }
- input.value="";
- output.scrollTop=output.scrollHeight;
-});
-
-// Login and signup
 let authMode="login";
-function setAuthMode(mode){
- authMode=mode;
- document.getElementById("loginTab").classList.toggle("active",mode==="login");
- document.getElementById("signupTab").classList.toggle("active",mode==="signup");
- document.getElementById("nameField").hidden=mode!=="signup";
- document.getElementById("authSubmit").textContent=mode==="login"?"LOGIN TO ACCOUNT ↗":"CREATE ACCOUNT ↗";
- document.getElementById("password").autocomplete=mode==="login"?"current-password":"new-password";
- document.getElementById("authMessage").textContent=mode==="login"?"Sign in with your registered email and password.":"Create your free account.";
-}
+let busy=false;
 
-document.getElementById("authForm").addEventListener("submit",async e=>{
- e.preventDefault();
- const message=document.getElementById("authMessage");
- const submit=document.getElementById("authSubmit");
- if(!supabaseClient){
-  message.textContent="Authentication service could not load. Check your internet connection and Supabase settings.";
+/* SHOW WEBSITE ONLY AFTER LOGIN */
+function showWebsite(user){
+ if(!user){
+  appShell.hidden=true;
+  loginScreen.hidden=false;
+  document.getElementById("userEmail").textContent="";
   return;
  }
+
+ appShell.hidden=false;
+ loginScreen.hidden=true;
+ document.getElementById("userEmail").textContent=user.email||"Member";
+ document.getElementById("year").textContent=new Date().getFullYear();
+}
+
+/* LOGIN / SIGNUP TABS */
+function setAuthMode(mode){
+ authMode=mode;
+
+ document.getElementById("loginTab").classList.toggle("active",mode==="login");
+ document.getElementById("signupTab").classList.toggle("active",mode==="signup");
+
+ document.getElementById("nameField").hidden=mode!=="signup";
+ document.getElementById("forgotBtn").hidden=mode==="signup";
+
+ submit.textContent=mode==="login"?"LOGIN TO WEBSITE ↗":"CREATE FREE ACCOUNT ↗";
+
+ document.getElementById("password").autocomplete=
+ mode==="login"?"current-password":"new-password";
+
+ message.textContent=mode==="login"?
+ "Login to enter NikhilTechWorld.":
+ "Create your free account using your email.";
+
+ document.getElementById("fullName").required=mode==="signup";
+}
+
+document.getElementById("loginTab").onclick=()=>setAuthMode("login");
+document.getElementById("signupTab").onclick=()=>setAuthMode("signup");
+
+/* AUTHENTICATION FORM */
+document.getElementById("authForm").addEventListener("submit",async e=>{
+ e.preventDefault();
+ if(busy)return;
+
  const email=document.getElementById("email").value.trim();
  const password=document.getElementById("password").value;
  const name=document.getElementById("fullName").value.trim();
+
  if(authMode==="signup"&&!name){
   message.textContent="Please enter your name.";
   return;
  }
+
+ busy=true;
  submit.disabled=true;
  submit.textContent="PLEASE WAIT...";
  message.textContent="Connecting securely...";
+
  try{
   let result;
+
   if(authMode==="signup"){
-   result=await supabaseClient.auth.signUp({
-    email,password,
+   result=await client.auth.signUp({
+    email,
+    password,
     options:{
      data:{full_name:name},
      emailRedirectTo:location.origin+location.pathname
     }
    });
+
+   if(result.error)throw result.error;
+
+   if(result.data.session){
+    message.textContent="Account created successfully!";
+    showWebsite(result.data.user);
+   }else{
+    message.textContent="Account created! Please check your email and confirm your account. Then log in.";
+   }
+
   }else{
-   result=await supabaseClient.auth.signInWithPassword({email,password});
+   result=await client.auth.signInWithPassword({email,password});
+
+   if(result.error)throw result.error;
+
+   if(!result.data.session)throw new Error("Login session not created.");
+
+   message.textContent="Login successful!";
+   showWebsite(result.data.user);
   }
-  if(result.error)throw result.error;
-  if(authMode==="signup"&&!result.data.session){
-   message.textContent="Account created! Check your email to confirm your account, then log in.";
-  }else{
-   message.textContent="Welcome! You are signed in as "+(result.data.user?.email||email)+".";
-  }
- }catch(error){
-  message.textContent=error.message||"Something went wrong. Please try again.";
+
+ }catch(err){
+  message.textContent=err.message||"Something went wrong.";
  }finally{
+  busy=false;
   submit.disabled=false;
-  submit.textContent=authMode==="login"?"LOGIN TO ACCOUNT ↗":"CREATE ACCOUNT ↗";
+  submit.textContent=authMode==="login"?
+  "LOGIN TO WEBSITE ↗":"CREATE FREE ACCOUNT ↗";
  }
 });
-</script>
-</body>
-</html>
+
+/* FORGOT PASSWORD */
+document.getElementById("forgotBtn").onclick=async()=>{
+ const email=document.getElementById("email").value.trim();
+
+ if(!email){
+  message.textContent="Please enter your email address first.";
+  return;
+ }
+
+ message.textContent="Sending password reset email...";
+
+ try{
+  const {error}=await client.auth.resetPasswordForEmail(email,{
+   redirectTo:location.origin+location.pathname
+  });
+
+  if(error)throw error;
+
+  message.textContent="Password reset link sent! Check your email.";
+ }catch(err){
+  message.textContent=err.message;
+ }
+};
+
+/* LOGOUT */
+document.getElementById("logoutBtn").onclick=async()=>{
+ const {error}=await client.auth.signOut();
+
+ if(error){
+  alert(error.message);
+  return;
+ }
+
+ showWebsite(null);
+ setAuthMode("login");
+ message.textContent="You have logged out successfully.";
+ window.scrollTo(0,0);
+};
+
+/* AUTH SESSION CHECK */
+client.auth.onAuthStateChange((event,session)=>{
+ if(event==="PASSWORD_RECOVERY"){
+  loginScreen.hidden=false;
+  appShell.hidden=true;
+  message.textContent="Enter your new password.";
+  setAuthMode("login");
+  document.getElementById("password").value="";
+  document.getElementById("password").placeholder="Enter new password";
+  submit.textContent="UPDATE PASSWORD";
+  authMode="recovery";
+ }
+ if(event==="SIGNED_IN"&&session){
+  showWebsite(session.user);
+ }
+ if(event==="SIGNED_OUT"){
+  showWebsite(null);
+ }
+});
+
+/* PASSWORD RECOVERY SUBMISSION */
+const originalSubmit=document.getElementById("authForm");
+originalSubmit.addEventListener("submit",async e=>{
+ if(authMode!=="recovery")return;
+ e.preventDefault();
+},true);
+
+/* INITIAL SESSION */
+(async()=>{
+ c
