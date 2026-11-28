@@ -1,6 +1,725 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080d0a">
+<meta name="description" content="NikhilTechWorld - AI, Technology and Coding">
+
+<title>NikhilTechWorld | Hacker & AI Technology</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#080d0a;
+  --panel:#101a13;
+  --panel2:#0c140f;
+  --green:#00ff88;
+  --green2:#00c96b;
+  --text:#e6fff0;
+  --muted:#91a99a;
+  --border:#1d3828;
+  --red:#ff7777;
+}
+
+* {box-sizing:border-box;margin:0;padding:0}
+
+body {
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,Arial,sans-serif;
+  min-height:100vh;
+}
+
+button,input {font:inherit}
+button {cursor:pointer}
+a {color:inherit;text-decoration:none}
+
+.hidden,[hidden] {display:none!important}
+
+.glow {
+  color:var(--green);
+  text-shadow:0 0 15px #00ff8860;
+}
+
+.logo {
+  font-family:Orbitron,sans-serif;
+  font-weight:800;
+  color:var(--green);
+  letter-spacing:1px;
+}
+
+.container {width:min(1100px,92%);margin:auto}
+
+/* LOGIN */
+
+#loginScreen {
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:25px 15px;
+  background:
+    radial-gradient(ellipse at top,#06331d55,transparent 55%),
+    var(--bg);
+}
+
+.login-card {
+  width:100%;
+  max-width:430px;
+  padding:32px 25px;
+  background:#0c1510;
+  border:1px solid #24543a;
+  border-radius:18px;
+  box-shadow:0 0 45px #00ff8810;
+}
+
+.login-brand {
+  text-align:center;
+  margin-bottom:28px;
+}
+
+.login-brand .logo {font-size:25px}
+.login-brand p {color:var(--muted);font-size:13px;margin-top:9px}
+
+.auth-tabs {
+  display:flex;
+  gap:8px;
+  margin-bottom:23px;
+}
+
+.auth-tabs button {
+  flex:1;
+  padding:12px;
+  border:1px solid var(--border);
+  background:#111c14;
+  color:var(--muted);
+  border-radius:8px;
+  font-weight:700;
+}
+
+.auth-tabs button.active {
+  background:#00ff8818;
+  color:var(--green);
+  border-color:var(--green);
+}
+
+.field {margin-bottom:17px}
+
+.field label {
+  display:block;
+  color:#c8e5d2;
+  font-size:13px;
+  margin-bottom:8px;
+}
+
+.field input {
+  width:100%;
+  padding:14px;
+  background:#080e0a;
+  color:white;
+  border:1px solid #294332;
+  border-radius:8px;
+  outline:none;
+}
+
+.field input:focus {border-color:var(--green)}
+
+.primary-btn {
+  width:100%;
+  padding:14px;
+  background:var(--green);
+  color:#00170b;
+  border:0;
+  border-radius:8px;
+  font-weight:800;
+  margin-top:5px;
+}
+
+.primary-btn:disabled {opacity:.5;cursor:not-allowed}
+
+#authMessage {
+  color:var(--green);
+  font-size:12px;
+  text-align:center;
+  margin-top:17px;
+  line-height:1.6;
+  overflow-wrap:anywhere;
+}
+
+.forgot {
+  display:block;
+  margin:15px auto 0;
+  border:0;
+  background:none;
+  color:var(--green);
+  font-size:13px;
+}
+
+.login-footer {
+  color:var(--muted);
+  text-align:center;
+  font-size:11px;
+  margin-top:25px;
+}
+
+/* MAIN WEBSITE */
+
+header {
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:#080d0aee;
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid var(--border);
+}
+
+.nav {
+  min-height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.nav .logo {font-size:19px}
+
+.nav-links {
+  display:flex;
+  align-items:center;
+  gap:22px;
+}
+
+.nav-links a {
+  font-size:13px;
+  color:#c0d5c7;
+}
+
+.nav-links a:hover {color:var(--green)}
+
+.menu-btn {
+  display:none;
+  color:var(--green);
+  background:none;
+  border:1px solid var(--border);
+  padding:8px 12px;
+  border-radius:6px;
+}
+
+.hero {
+  padding:85px 0 70px;
+  text-align:center;
+  background:radial-gradient(ellipse at center,#06351c55,transparent 65%);
+}
+
+.tag {
+  display:inline-block;
+  padding:8px 13px;
+  color:var(--green);
+  border:1px solid #24623d;
+  border-radius:30px;
+  font-size:11px;
+  letter-spacing:1px;
+  margin-bottom:23px;
+}
+
+.hero h1 {
+  font-family:Orbitron,sans-serif;
+  font-size:clamp(30px,6vw,58px);
+  line-height:1.25;
+  margin-bottom:20px;
+}
+
+.hero p {
+  color:var(--muted);
+  max-width:600px;
+  margin:0 auto;
+  line-height:1.8;
+  font-size:14px;
+}
+
+.hero-buttons {
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin-top:28px;
+  flex-wrap:wrap;
+}
+
+.btn {
+  padding:12px 19px;
+  border-radius:7px;
+  border:1px solid var(--green);
+  background:var(--green);
+  color:#00190b;
+  font-size:13px;
+  font-weight:700;
+}
+
+.btn-outline {
+  background:transparent;
+  color:var(--green);
+}
+
+section {padding:55px 0;scroll-margin-top:85px}
+
+.section-title {
+  font-family:Orbitron,sans-serif;
+  font-size:23px;
+  margin-bottom:10px;
+}
+
+.section-sub {
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:25px;
+  line-height:1.7;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:17px;
+}
+
+.card {
+  background:linear-gradient(145deg,#111e15,#0b120d);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:22px;
+  transition:.2s;
+}
+
+.card:hover {
+  border-color:var(--green);
+  transform:translateY(-3px);
+}
+
+.card-icon {font-size:27px;margin-bottom:15px}
+
+.card h3 {font-size:16px;margin-bottom:9px}
+
+.card p {
+  font-size:12px;
+  line-height:1.8;
+  color:var(--muted);
+}
+
+.card-link {
+  display:inline-block;
+  color:var(--green);
+  font-size:12px;
+  margin-top:17px;
+  font-weight:700;
+}
+
+/* TERMINAL */
+
+.terminal {
+  background:#050a07;
+  border:1px solid #24583a;
+  border-radius:12px;
+  overflow:hidden;
+  font-family:"Fira Code",monospace;
+  box-shadow:0 0 30px #00ff880b;
+}
+
+.terminal-head {
+  padding:13px 16px;
+  background:#112017;
+  border-bottom:1px solid var(--border);
+  font-size:12px;
+  color:var(--green);
+}
+
+.term-output {
+  height:230px;
+  overflow:auto;
+  padding:17px;
+  color:#9effbe;
+  font-size:12px;
+  line-height:2;
+  overflow-wrap:anywhere;
+}
+
+.term-input {
+  display:flex;
+  gap:8px;
+  padding:13px;
+  border-top:1px solid var(--border);
+}
+
+.term-input span {color:var(--green);padding-top:10px}
+
+.term-input input {
+  flex:1;
+  min-width:0;
+  background:none;
+  border:0;
+  outline:none;
+  color:white;
+  font-family:"Fira Code",monospace;
+  font-size:12px;
+}
+
+.term-input button {
+  background:var(--green);
+  color:#00170b;
+  border:0;
+  padding:8px 14px;
+  border-radius:5px;
+  font-weight:700;
+}
+
+/* PROFILE */
+
+.profile-card {
+  display:flex;
+  gap:20px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.avatar {
+  width:76px;
+  height:76px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#123d26;
+  border:2px solid var(--green);
+  color:var(--green);
+  font-family:Orbitron,sans-serif;
+  font-size:25px;
+}
+
+.profile-info p {
+  color:var(--muted);
+  font-size:12px;
+  margin-top:8px;
+  overflow-wrap:anywhere;
+}
+
+.status {
+  display:inline-block;
+  color:var(--green);
+  font-size:11px;
+  margin-top:10px;
+}
+
+/* BLOG */
+
+.blog-date {color:var(--green);font-size:11px;margin-bottom:12px}
+
+footer {
+  border-top:1px solid var(--border);
+  padding:30px 0;
+  text-align:center;
+  color:var(--muted);
+  font-size:12px;
+  line-height:2;
+}
+
+.logout-btn {
+  border:1px solid #763737;
+  color:#ff9292;
+  background:#2a1111;
+  padding:9px 13px;
+  border-radius:6px;
+  font-size:12px;
+}
+
+@media(max-width:760px) {
+  .menu-btn {display:block}
+
+  .nav-links {
+    display:none;
+    position:absolute;
+    top:71px;
+    left:0;
+    right:0;
+    padding:20px 5%;
+    background:#0a120d;
+    border-bottom:1px solid var(--border);
+    flex-direction:column;
+    align-items:flex-start;
+    gap:20px;
+  }
+
+  .nav-links.open {display:flex}
+  .hero {padding:65px 0 50px}
+  section {padding:42px 0}
+  .login-card {padding:27px 19px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN SCREEN -->
+
+<div id="loginScreen">
+  <div class="login-card">
+    <div class="login-brand">
+      <div class="logo">NIKHIL<span class="glow">TECH</span>WORLD</div>
+      <p>WELCOME TO THE TECHNOLOGY WORLD</p>
+    </div>
+
+    <div class="auth-tabs">
+      <button id="loginTab" class="active" type="button">LOGIN</button>
+      <button id="signupTab" type="button">SIGN UP</button>
+    </div>
+
+    <form id="authForm">
+      <div class="field" id="nameField" hidden>
+        <label>Full Name</label>
+        <input id="fullName" type="text" placeholder="Enter your name" autocomplete="name">
+      </div>
+
+      <div class="field">
+        <label>Email Address</label>
+        <input id="email" type="email" placeholder="Enter your email" required autocomplete="email">
+      </div>
+
+      <div class="field">
+        <label>Password</label>
+        <input id="password" type="password" placeholder="Minimum 6 characters" required minlength="6" autocomplete="current-password">
+      </div>
+
+      <button class="primary-btn" id="authSubmit" type="submit">
+        LOGIN TO WEBSITE ↗
+      </button>
+    </form>
+
+    <button class="forgot" id="forgotBtn" type="button">
+      Forgot Password?
+    </button>
+
+    <div id="authMessage" role="status" aria-live="polite">
+      Login to enter NikhilTechWorld.
+    </div>
+
+    <div class="login-footer">
+      SECURE AUTHENTICATION • POWERED BY SUPABASE
+    </div>
+  </div>
+</div>
+
+<!-- MAIN APP -->
+
+<div id="appShell" hidden>
+
+<header>
+  <div class="container nav">
+    <a href="#home" class="logo">NIKHIL<span class="glow">TECH</span>WORLD</a>
+
+    <button class="menu-btn" id="menuBtn" type="button">☰ MENU</button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#tools">AI Tools</a>
+      <a href="#terminal">Terminal</a>
+      <a href="#profile">Profile</a>
+      <a href="#blog">Blog</a>
+      <button class="logout-btn" id="logoutBtn" type="button">LOGOUT ↗</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+  <div class="container">
+    <div class="tag">WELCOME TO MY DIGITAL WORLD</div>
+
+    <h1>
+      EXPLORE THE<br>
+      <span class="glow">FUTURE OF TECH</span>
+    </h1>
+
+    <p>
+      Discover Artificial Intelligence, modern technology, coding
+      and digital innovation. Learn something new every day with
+      NikhilTechWorld.
+    </p>
+
+    <div class="hero-buttons">
+      <a class="btn" href="#tools">EXPLORE TOOLS ↗</a>
+      <a class="btn btn-outline" href="#terminal">OPEN TERMINAL</a>
+    </div>
+  </div>
+</section>
+
+<!-- AI TOOLS -->
+
+<section id="tools">
+  <div class="container">
+    <h2 class="section-title"><span class="glow">01.</span> AI TOOLS</h2>
+    <p class="section-sub">Useful AI and creative platforms in one place.</p>
+
+    <div class="grid">
+      <article class="card">
+        <div class="card-icon">🤖</div>
+        <h3>ChatGPT</h3>
+        <p>Explore AI conversations, learning and ideas.</p>
+        <a class="card-link" href="https://chatgpt.com/" target="_blank" rel="noopener">OPEN TOOL ↗</a>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">✨</div>
+        <h3>Google Gemini</h3>
+        <p>Discover Google's AI assistant and creative tools.</p>
+        <a class="card-link" href="https://gemini.google.com/" target="_blank" rel="noopener">OPEN TOOL ↗</a>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">🎨</div>
+        <h3>Canva</h3>
+        <p>Create graphics, designs and social media posts.</p>
+        <a class="card-link" href="https://www.canva.com/" target="_blank" rel="noopener">OPEN TOOL ↗</a>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">🎬</div>
+        <h3>CapCut</h3>
+        <p>Explore video editing and creative content tools.</p>
+        <a class="card-link" href="https://www.capcut.com/" target="_blank" rel="noopener">OPEN TOOL ↗</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- TERMINAL -->
+
+<section id="terminal">
+  <div class="container">
+    <h2 class="section-title"><span class="glow">02.</span> HACKER TERMINAL</h2>
+    <p class="section-sub">Educational command-line demo. Try the available commands.</p>
+
+    <div class="terminal">
+      <div class="terminal-head">● ONLINE &nbsp; | &nbsp; NIKHILTECHWORLD TERMINAL</div>
+
+      <div class="term-output" id="termOutput">
+        <div>Welcome to NikhilTechWorld Terminal.</div>
+        <div>Type <span class="glow">help</span> to see commands.</div>
+      </div>
+
+      <form class="term-input" id="termForm">
+        <span>visitor@ntw:~$</span>
+        <input id="termCommand" type="text" placeholder="Type a command..." autocomplete="off">
+        <button type="submit">RUN</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- PROFILE -->
+
+<section id="profile">
+  <div class="container">
+    <h2 class="section-title"><span class="glow">03.</span> MY PROFILE</h2>
+    <p class="section-sub">Your account information.</p>
+
+    <div class="card profile-card">
+      <div class="avatar">NG</div>
+
+      <div class="profile-info">
+        <h3 id="profileName">Nikhil Gautam</h3>
+        <p id="userEmail">Member</p>
+        <span class="status">● ACCOUNT CONNECTED</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+
+<section id="blog">
+  <div class="container">
+    <h2 class="section-title"><span class="glow">04.</span> TECH BLOG</h2>
+    <p class="section-sub">Explore technology and learn new things.</p>
+
+    <div class="grid">
+      <article class="card">
+        <div class="blog-date">ARTIFICIAL INTELLIGENCE</div>
+        <h3>What is AI?</h3>
+        <p>Understand artificial intelligence and how it is changing the world.</p>
+        <a class="card-link" href="https://www.ibm.com/think/topics/artificial-intelligence" target="_blank" rel="noopener">READ MORE ↗</a>
+      </article>
+
+      <article class="card">
+        <div class="blog-date">WEB DEVELOPMENT</div>
+        <h3>Learn HTML</h3>
+        <p>Start learning the basics of creating websites with HTML.</p>
+        <a class="card-link" href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener">READ MORE ↗</a>
+      </article>
+
+      <article class="card">
+        <div class="blog-date">PROGRAMMING</div>
+        <h3>Learn JavaScript</h3>
+        <p>Discover the language that makes websites interactive.</p>
+        <a class="card-link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener">READ MORE ↗</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL -->
+
+<section id="social">
+  <div class="container">
+    <h2 class="section-title"><span class="glow">05.</span> CONNECT WITH ME</h2>
+    <p class="section-sub">Follow NikhilTechWorld on social platforms.</p>
+
+    <div class="grid">
+      <a class="card" href="https://youtube.com/@gamingadda-g3m" target="_blank" rel="noopener">
+        <div class="card-icon">▶️</div>
+        <h3>YouTube</h3>
+        <p>Visit my YouTube channel.</p>
+        <span class="card-link">VISIT CHANNEL ↗</span>
+      </a>
+
+      <a class="card" href="https://www.instagram.com/nikhilgoutam86/" target="_blank" rel="noopener">
+        <div class="card-icon">📸</div>
+        <h3>Instagram</h3>
+        <p>Connect with me on Instagram.</p>
+        <span class="card-link">VISIT PROFILE ↗</span>
+      </a>
+
+      <a class="card" href="https://t.me/Nikhilgautam09" target="_blank" rel="noopener">
+        <div class="card-icon">✈️</div>
+        <h3>Telegram</h3>
+        <p>Join my Telegram community.</p>
+        <span class="card-link">JOIN NOW ↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="logo">NIKHILTECHWORLD</div>
+    <p>Technology • AI • Coding • Innovation</p>
+    <p>© <span id="year"></span> NikhilTechWorld. All rights reserved.</p>
+  </div>
+</footer>
+
+</div>
+
+<!-- SUPABASE LIBRARY -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
-/* SUPABASE CONNECTION */
+  
+/* SUPABASE CONFIGURATION */
+
 const SUPABASE_URL = "https://ihzvaqrkisosnbrmnjrv.supabase.co";
 const SUPABASE_KEY = "sb_publishable_Kbvl3_dTe7s63EnpD7DOBg_TGJQ5bcR";
 
@@ -16,32 +735,38 @@ let busy = false;
 
 function showMessage(text, error = false) {
   message.textContent = text;
-  message.style.color = error ? "#ff8585" : "#52e0a0";
+  message.style.color = error ? "#ff7777" : "#00ff88";
 }
 
 function showWebsite(user) {
   if (!user) {
     appShell.hidden = true;
     loginScreen.hidden = false;
-    document.getElementById("userEmail").textContent = "";
     return;
   }
 
   loginScreen.hidden = true;
   appShell.hidden = false;
+
   document.getElementById("userEmail").textContent =
     user.email || "Member";
+
+  document.getElementById("profileName").textContent =
+    user.user_metadata?.full_name || "Nikhil Gautam";
+
   document.getElementById("year").textContent =
     new Date().getFullYear();
 }
 
-/* CHANGE LOGIN / SIGNUP MODE */
+/* LOGIN AND SIGNUP MODE */
+
 function setAuthMode(mode) {
   authMode = mode;
 
   document.getElementById("loginTab").classList.toggle(
     "active", mode === "login"
   );
+
   document.getElementById("signupTab").classList.toggle(
     "active", mode === "signup"
   );
@@ -63,7 +788,7 @@ function setAuthMode(mode) {
 
   document.getElementById("password").placeholder =
     mode === "recovery"
-      ? "Enter your new password"
+      ? "Enter new password"
       : "Minimum 6 characters";
 
   document.getElementById("password").autocomplete =
@@ -89,35 +814,35 @@ document.getElementById("signupTab").addEventListener(
   "click", () => setAuthMode("signup")
 );
 
-/* CHECK SUPABASE LIBRARY */
+/* CHECK SUPABASE */
+
 if (!window.supabase || !window.supabase.createClient) {
-  showMessage(
-    "Supabase library load nahi hui. Internet check karke page refresh karo.",
-    true
-  );
+  showMessage("Supabase library load nahi hui. Internet check karo.", true);
 } else {
+
   client = window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
   );
 
-  /* LOGIN, SIGNUP AND PASSWORD UPDATE */
+  /* AUTH FORM */
+
   authForm.addEventListener("submit", async function(e) {
     e.preventDefault();
 
-    if (busy || !client) return;
+    if (busy) return;
 
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value;
     const name = document.getElementById("fullName").value.trim();
 
     if (password.length < 6) {
-      showMessage("Password kam se kam 6 characters ka hona chahiye.", true);
+      showMessage("Password minimum 6 characters ka hona chahiye.", true);
       return;
     }
 
     if (authMode === "signup" && !name) {
-      showMessage("Please enter your name.", true);
+      showMessage("Apna full name enter karo.", true);
       return;
     }
 
@@ -128,43 +853,50 @@ if (!window.supabase || !window.supabase.createClient) {
     try {
       let result;
 
-      if (authMode === "recovery") {
-        result = await client.auth.updateUser({
-          password: password
-        });
+      if (authMode === "signup") {
 
-        if (result.error) throw result.error;
-
-        showMessage("Password successfully update ho gaya! Ab login karo.");
-        document.getElementById("password").value = "";
-        document.getElementById("email").value = "";
-        setAuthMode("login");
-      }
-
-      else if (authMode === "signup") {
         result = await client.auth.signUp({
           email: email,
           password: password,
           options: {
-            data: { full_name: name },
-            emailRedirectTo:
-              window.location.origin + window.location.pathname
+            data: {
+              full_name: name
+            },
+            emailRedirectTo: window.location.origin +
+              window.location.pathname
           }
         });
 
         if (result.error) throw result.error;
 
         if (result.data.session) {
-          showMessage("Account successfully created!");
           showWebsite(result.data.user);
+          showMessage("Account successfully created!");
         } else {
           showMessage(
-            "Account created! Email inbox check karo aur verification link par click karo. Phir login karo."
+            "Account created! Email verification link check karo, phir login karo."
           );
+          setAuthMode("login");
+          document.getElementById("email").value = email;
         }
-      }
 
-      else {
+      } else if (authMode === "recovery") {
+
+        result = await client.auth.updateUser({
+          password: password
+        });
+
+        if (result.error) throw result.error;
+
+        showMessage("Password successfully updated!");
+
+        document.getElementById("password").value = "";
+        document.getElementById("email").value = "";
+
+        setAuthMode("login");
+
+      } else {
+
         result = await client.auth.signInWithPassword({
           email: email,
           password: password
@@ -178,6 +910,7 @@ if (!window.supabase || !window.supabase.createClient) {
 
     } catch (err) {
       showMessage(err.message || "Something went wrong.", true);
+
     } finally {
       busy = false;
       submit.disabled = false;
@@ -193,56 +926,61 @@ if (!window.supabase || !window.supabase.createClient) {
   });
 
   /* FORGOT PASSWORD */
+
   document.getElementById("forgotBtn").addEventListener(
     "click", async function() {
+
       if (busy) return;
 
       const email = document.getElementById("email").value.trim();
 
       if (!email) {
-        showMessage("Pehle apna email address enter karo.", true);
+        showMessage("Pehle email enter karo.", true);
         document.getElementById("email").focus();
         return;
       }
 
       busy = true;
-      document.getElementById("forgotBtn").disabled = true;
-      showMessage("Password reset email bheji ja rahi hai...");
+      this.disabled = true;
+
+      showMessage("Reset email bheji ja rahi hai...");
 
       try {
-        const { error } = await client.auth.resetPasswordForEmail(
-          email,
-          {
-            redirectTo:
-              window.location.origin + window.location.pathname
-          }
-        );
+        const { error } =
+          await client.auth.resetPasswordForEmail(email, {
+            redirectTo: window.location.origin +
+              window.location.pathname
+          });
 
         if (error) throw error;
 
-        showMessage(
-          "Reset link bhej diya gaya hai. Apna email inbox check karo."
-        );
+        showMessage("Password reset link email par bhej diya gaya hai.");
 
       } catch (err) {
         showMessage(err.message, true);
+
       } finally {
         busy = false;
-        document.getElementById("forgotBtn").disabled = false;
+        this.disabled = false;
       }
     }
   );
 
-  /* AUTH STATE CHANGES */
+  /* AUTH STATE */
+
   client.auth.onAuthStateChange((event, session) => {
+
     if (event === "PASSWORD_RECOVERY") {
       showWebsite(null);
       setAuthMode("recovery");
+
       document.getElementById("password").value = "";
+
       showMessage("Ab apna naya password enter karo.");
     }
 
-    if (event === "SIGNED_IN" && session && authMode !== "recovery") {
+    if (event === "SIGNED_IN" && session &&
+        authMode !== "recovery") {
       showWebsite(session.user);
     }
 
@@ -251,7 +989,8 @@ if (!window.supabase || !window.supabase.createClient) {
     }
   });
 
-  /* CHECK EXISTING LOGIN */
+  /* EXISTING SESSION */
+
   (async function() {
     try {
       const { data, error } = await client.auth.getSession();
@@ -263,15 +1002,20 @@ if (!window.supabase || !window.supabase.createClient) {
       } else {
         showWebsite(null);
       }
+
     } catch (err) {
       showWebsite(null);
-      showMessage("Session check error: " + err.message, true);
+      showMessage("Session error: " + err.message, true);
     }
   })();
 
   /* LOGOUT */
+
   document.getElementById("logoutBtn").addEventListener(
     "click", async function() {
+
+      if (busy) return;
+
       const { error } = await client.auth.signOut();
 
       if (error) {
@@ -279,61 +1023,77 @@ if (!window.supabase || !window.supabase.createClient) {
         return;
       }
 
-      setAuthMode("login");
       document.getElementById("password").value = "";
+      setAuthMode("login");
       showWebsite(null);
       window.scrollTo(0, 0);
     }
   );
 }
 
-/* MOBILE MENU */
-function toggleMenu() {
-  document.getElementById("navLinks").classList.toggle("open");
-}
+/* MOBILE NAVIGATION */
 
-document.querySelectorAll("#navLinks a").forEach(a => {
-  a.addEventListener("click", () => {
+document.getElementById("menuBtn").addEventListener(
+  "click", function() {
+    document.getElementById("navLinks").classList.toggle("open");
+  }
+);
+
+document.querySelectorAll("#navLinks a").forEach(link => {
+  link.addEventListener("click", () => {
     document.getElementById("navLinks").classList.remove("open");
   });
 });
 
-/* EDUCATIONAL DEMO TERMINAL */
+/* EDUCATIONAL TERMINAL */
+
 const output = document.getElementById("termOutput");
 
 const commands = {
-  help: "Available: help, about, date, skills, status, clear",
-  about: "NikhilTechWorld — Technology and AI learning project.",
-  date: () => new Date().toString(),
-  skills: "HTML • CSS • JavaScript • AI • Web Design",
-  status: "SYSTEM STATUS: Demo terminal running normally."
+  help: "Commands: help, about, date, time, skills, status, clear",
+  about: "NikhilTechWorld - AI, Technology and Coding.",
+  date: () => new Date().toLocaleDateString(),
+  time: () => new Date().toLocaleTimeString(),
+  skills: "HTML | CSS | JavaScript | AI | Web Design",
+  status: "SYSTEM STATUS: ONLINE. Educational demo running normally."
 };
 
-document.getElementById("termForm").addEventListener("submit", e => {
-  e.preventDefault();
+document.getElementById("termForm").addEventListener(
+  "submit", function(e) {
 
-  const input = document.getElementById("termCommand");
-  const command = input.value.trim().toLowerCase();
+    e.preventDefault();
 
-  if (!command) return;
+    const input = document.getElementById("termCommand");
+    const command = input.value.trim().toLowerCase();
 
-  const line = document.createElement("div");
-  line.textContent = "visitor@ntw:~$ " + command;
-  output.appendChild(line);
+    if (!command) return;
 
-  if (command === "clear") {
-    output.innerHTML = "<div>Terminal cleared. Type help.</div>";
-  } else {
+    if (command === "clear") {
+      output.innerHTML = "<div>Terminal cleared. Type help.</div>";
+      input.value = "";
+      return;
+    }
+
+    const line = document.createElement("div");
+    line.textContent = "visitor@ntw:~$ " + command;
+    output.appendChild(line);
+
     const result = document.createElement("div");
+
     result.textContent = commands[command]
       ? (typeof commands[command] === "function"
           ? commands[command]()
           : commands[command])
       : "Command not found. Type help.";
-    output.appendChild(result);
-  }
 
-  input.value = "";
-});
-   </script>
-   
+    output.appendChild(result);
+
+    output.scrollTop = output.scrollHeight;
+    input.value = "";
+  }
+);
+</script>
+
+</body>
+    </html>
+      
